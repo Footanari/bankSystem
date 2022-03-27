@@ -6,7 +6,7 @@ class account:
         self.__history_id = 0
         self.__loan = 0
     
-        @property 
+    @property 
     def name(self):
         print(self.__name)
     
