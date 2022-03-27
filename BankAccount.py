@@ -4,7 +4,7 @@ class account:
         self.__balance = balance
         self.__history = []
         self.__history_id = 0
-        self.__loan = 0
+        self.loan = 0
     
     @property 
     def name(self):
@@ -28,10 +28,10 @@ class account:
     def return_loan_payment(self, amount):
         if(self.__balance<ammount):
             raise Exception("return ammount greater than balance")
-        if(self.__loan<ammount):
-            ammount=self.__loan
+        if(self.loan<ammount):
+            ammount=self.loan
         self.__balance -= ammount
-        self.__loan -= ammount
+        self.loan -= ammount
         self.__history_id += 1
         self.__history.append("transaction N"+str(self.__history_id)+", type � loan payment, amount - "+str(ammount)+", new balance - "+str(self.__balance),", new loan - "+str(self.__loan))
 

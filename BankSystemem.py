@@ -4,13 +4,13 @@ class system:
     accounts = []
     moneyInBank = 0
     def Register_new_user(new_Bank_Account:account): #( new_Bank_Account : BankAcconut )
-        system.accounts.append()
+        system.accounts.append(new_Bank_Account)
         return len(system.accounts) - 1
     def Delete_user(user_id):
         system.accounts.remove(system.accounts[user_id])
     def Give_loan_to_user(user_id, amount, interest, return_period_in_months):
-        account.loan += amount + interest
-        account.balance += amount
+        system.accounts[user_id].loan += amount + interest
+        system.accounts[user_id].deposit(amount)
     def Show_all_transactions(user_id = ""):
         if user_id == "":
             for user in system.accounts:
