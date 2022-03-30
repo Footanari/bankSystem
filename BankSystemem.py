@@ -17,4 +17,11 @@ class system:
                 user.print_all_transactions()
             return
         system.accounts[user_id].print_all_transactions()
-        
+    def withdrawFrom(user_id, amount):
+        if system.moneyInBank < amount:
+            raise Exception('Not enough money to withdraw from bank')
+        system.accounts[user_id].withdraw(amount)
+        system.moneyInBank -= amount
+    def depositTo(user_id, amount):
+        system.accounts[user_id].deposit(amount)
+        system.moneyInBank += amount
