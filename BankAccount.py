@@ -1,11 +1,12 @@
 class account:
-    def __init__(self, name, balance):
+    def __init__(self, name, balance, password = ''):
         self.__name = name
         self.__balance = balance
         self.__history = []
         self.__history_id = 0
         self.loan = 0
-    
+        self.__passhash = hash(password)
+
     @property 
     def name(self):
         print(self.__name)
@@ -35,3 +36,9 @@ class account:
         self.__history_id += 1
         self.__history.append("transaction N"+str(self.__history_id)+", type � loan payment, amount - "+str(ammount)+", new balance - "+str(self.__balance),", new loan - "+str(self.__loan))
 
+    def checkPassword(self, password = ''):
+        return self.__passhash == hash(password)
+
+    def changePassword(self, password = '', newPassword = ''):
+        if(self.checkPassword(password)):
+            self.__passhash = hash(newPassword)

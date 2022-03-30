@@ -15,3 +15,11 @@ if __name__ == '__main__':
 
     system.Delete_user(0)
     system.Delete_user(0)
+
+    system.Register_new_user(account('Sugondese Nuts', 1, 'password1234'))
+
+    print(system.accounts[2].checkPassword('1234'))
+    print(system.accounts[2].checkPassword('password1234'))
+    system.accounts[2].changePassword('password1234', 'VerySecurePassword123456')
+    print(system.accounts[2].checkPassword('password1234'))
+    print(system.accounts[2].checkPassword('VerySecurePassword123456'))
